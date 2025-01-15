@@ -1,4 +1,6 @@
-let t1 = gsap.timeline()
+// loader 
+function loadingAnimation(){
+    let t1 = gsap.timeline()
 t1.from(".line h1", {
     y: 150,
     stagger: 0.25,
@@ -24,7 +26,7 @@ t1.from("#line1-part1 ,.line h2", {
 t1.to("#loader", {
     opacity: 0,
     duration: 0.2,
-    delay :4,
+    delay :0,
 })
 t1.from("#page1",{
     delay :0.5,
@@ -33,6 +35,33 @@ t1.from("#page1",{
     opacity : 0,
     duration: 0.5,
 })
+t1.from("#nav",{
+    y:-100,
+    opacity : 0,
+    // duration: 0.5,
+})
+t1.from("#hero1 h1, #hero2 h1, #hero3 h2, #hero4 h1",{
+    stagger : 0.2,
+    opacity : 1,
+    y:130,
+})
 t1.to("#loader", {
    display : 'none',
 })
+// t1.from(".hero h1",{
+//     opacity : 1,
+//     y:100,
+// })
+ } loadingAnimation();
+
+document.addEventListener("mousemove",function(dets){
+    gsap.to("#crsr",{
+        top:dets.y,
+        left:dets.x,
+    })
+   
+})
+
+Shery.makeMagnet("#nav-part2 h4", {
+  
+  });
